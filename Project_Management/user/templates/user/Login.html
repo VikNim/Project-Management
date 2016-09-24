@@ -1,0 +1,55 @@
+<html>
+<head>
+{% block head %}
+    <title> {% block title %}Project Hub| Login{% endblock %}</title>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'home/css/style.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap-theme.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static 'user/css/bootstrap-theme.min.css' %}">
+{% endblock %}
+</head>
+{% block body %}
+<body>
+    <div class="main">
+  <div class="header">
+    <div class="header_resize">
+      <div class="logo">
+        <h1><a href="/"><span>Project </span>Hub</a></h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid">
+    <div class="row">
+    <div class="col-sm-12 col-md-7">
+    <div class="panel panel-default">
+    <div class="panel-body">
+        <h3> Login </h3>
+    {% if error_message %}
+    <p><strong> {{ error_message }}</strong></p>
+    {% endif %}
+        <form action="" method="post" class="form-horizontal">
+            {% csrf_token %}
+            {% for field in form %}
+                <div>
+                    <span> {{ field.errors }}</span>
+                </div>
+                <label> {{ field.label_tag }}</label>{{ field }}
+            {% endfor %}
+        <div class="form-group">
+            <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" class="btn btn-success" name="Submit"> Login </button>
+                </div>
+            </div>
+        </form>
+    </div>
+</div>
+    </div>
+   </div>
+</div>
+{% endblock %}
+</body>
+</html>
