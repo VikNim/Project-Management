@@ -1,3 +1,2 @@
 # Project-Management
-Built in Python 3 using Django Framework.
-Similar to Github.
+A simple version control website developed in Python 3 using Django Framework.
